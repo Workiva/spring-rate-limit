@@ -1,0 +1,5 @@
+version: 1
+
+raven_monitored_files:
+  src/main/java/com/workiva/cerebral/auth/:
+    reason: Auth logic
