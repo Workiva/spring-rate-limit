@@ -26,6 +26,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.github.usedrarely</groupId>
   <artifactId>redis-distributed-token-bucket</artifactId>
   <version>1.0.0</version>
 
