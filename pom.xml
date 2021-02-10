@@ -51,7 +51,6 @@
     <module>rate-limit-api</module>
     <module>rate-limit-core</module>
     <module>redis-distributed-token-bucket</module>
-    <module>rate-limit-example</module>
   </modules>
 
   <properties>

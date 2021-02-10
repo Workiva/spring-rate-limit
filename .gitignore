@@ -1,20 +1,9 @@
 .idea/
-!.idea/codeStyleSettings.xml
-!.idea/copyright/*
 
-.project
-.settings
-.classpath
-.tern-project
-.springBeans
+target/
+
+.java-version
+
 *.iml
 
-
-**/generated
-target/
-out
-bin
-**/*.log
-
-*.swp
 .DS_Store

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2021 Franjo Žilić <frenky666@gmail.com>
+  ~
+  ~ Permission to use, copy, modify, and distribute this software for any
+  ~ purpose with or without fee is hereby granted, provided that the above
+  ~ copyright notice and this permission notice appear in all copies.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  ~ WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  ~ MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ~ ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  ~ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ~ ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  ~ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  ~
+  -->
+
+<settings
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"
+    xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>${ARTIFACTORY_PRO_USER}</username>
+      <password>${ARTIFACTORY_PRO_PASS}</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>${ARTIFACTORY_PRO_USER}</username>
+      <password>${ARTIFACTORY_PRO_BACKUP_PASS}</password>
+      <id>central-backup</id>
+    </server>
+    <server>
+      <username>${ARTIFACTORY_PRO_USER}</username>
+      <password>${ARTIFACTORY_PRO_PASS}</password>
+      <id>snapshots</id>
+    </server>
+    <server>
+      <username>${ARTIFACTORY_PRO_USER}</username>
+      <password>${ARTIFACTORY_PRO_BACKUP_PASS}</password>
+      <id>snapshots-backup</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>maven-prod</name>
+          <url>https://workivaeast.jfrog.io/workivaeast/maven-prod
+          </url>
+        </repository>
+        <repository>
+          <snapshots/>
+          <id>snapshots</id>
+          <name>maven-dev</name>
+          <url>https://workivaeast.jfrog.io/workivaeast/maven-dev
+          </url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>maven-prod</name>
+          <url>https://workivaeast.jfrog.io/workivaeast/maven-prod
+          </url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots/>
+          <id>snapshots</id>
+          <name>maven-dev</name>
+          <url>https://workivaeast.jfrog.io/workivaeast/maven-dev
+          </url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
