@@ -21,7 +21,6 @@ ARG ARTIFACTORY_PRO_PASS
 COPY pom.xml /build/pom.xml
 COPY ./rate-limit-api/pom.xml /build/rate-limit-api/pom.xml
 COPY ./rate-limit-core/pom.xml /build/rate-limit-core/pom.xml
-COPY ./rate-limit-example/pom.xml /build/rate-limit-example/pom.xml
 COPY ./redis-distributed-token-bucket/pom.xml /build/redis-distributed-token-bucket/pom.xml
 
 # set workdir
@@ -47,7 +46,7 @@ RUN find /build -type f -name "*.jar" -print0 | xargs -0 tar -czf java.tar.gz
 ARG BUILD_ARTIFACTS_VERACODE=/build/java.tar.gz
 ARG BUILD_ARTIFACTS_POM=/build/pom.xml
 ARG BUILD_ARTIFACTS_TEST=/build/target/surefire-reports/*.xml
-ARG BUILD_ARTIFACTS_JAVA=/build/target/wdata-lib*.jar
+ARG BUILD_ARTIFACTS_JAVA=/build/target/rate-limit-api/*.jar:/build/target/rate-limit-core/*.jar:/build/target/redis-distributed-token-bucket/*.jar
 
 # no-op container build
 FROM scratch
