@@ -44,9 +44,8 @@ RUN mvn -T 2C --errors install -am -DskipITs -Dhttp.keepAlive=false
 RUN find /build -type f -name "*.jar" -print0 | xargs -0 tar -czf java.tar.gz
 
 ARG BUILD_ARTIFACTS_VERACODE=/build/java.tar.gz
-ARG BUILD_ARTIFACTS_POM=/build/pom.xml
-ARG BUILD_ARTIFACTS_TEST=/build/target/surefire-reports/*.xml
-ARG BUILD_ARTIFACTS_JAVA=/build/target/rate-limit-api/*.jar:/build/target/rate-limit-core/*.jar:/build/target/redis-distributed-token-bucket/*.jar
+ARG BUILD_ARTIFACTS_POM=/build/pom.xml:/build/rate-limit-api/pom.xml:/build/rate-limit-core/pom.xml:/build/redis-distributed-token-bucket/pom.xml
+ARG BUILD_ARTIFACTS_JAVA=/build/rate-limit-api/target/*.jar:/build/rate-limit-core/target/*.jar:/build/redis-distributed-token-bucket/target/*.jar
 
 # no-op container build
 FROM scratch
